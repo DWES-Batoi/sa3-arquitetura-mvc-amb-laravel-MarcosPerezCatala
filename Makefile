@@ -8,7 +8,8 @@ down:
 
 reset:
 	docker compose down -v
-	rm -rf vendor node_modules bootstrap/cache/*.php public/storage
+	rm -r.
+	f vendor node_modules bootstrap/cache/*.php public/storage
 	rm -f .env
 
 

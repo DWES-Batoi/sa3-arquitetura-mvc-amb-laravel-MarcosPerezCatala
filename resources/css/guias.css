@@ -1,0 +1,30 @@
+/* --- Estils originals que ja tenies --- */
+body { font-family: system-ui, Arial, sans-serif; }
+h1 { color: darkblue; }
+nav ul { list-style: none; padding: 0; }
+nav li { display: inline; margin-right: 15px; }
+nav a { text-decoration: none; color: white; }
+nav a:hover { text-decoration: underline; }
+.equip { border: 1px solid #ddd; padding: 10px; margin: 10px 0; border-radius: 5px; }
+.equip h2 { margin: 0; color: darkblue; }
+
+/* --- AFEGITS FASE 5 (Senzill) --- */
+
+/* 1. Taules */
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+th { background-color: #f2f2f2; }
+
+/* 2. Formularis (Inputs bàsics) */
+input[type="text"], input[type="number"], input[type="date"], select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* 3. Alertes (Missatges d'èxit o error) */
+.alert { padding: 15px; margin-bottom: 20px; border: 1px solid transparent; border-radius: 4px; }
+.alert-success { color: #155724; background-color: #d4edda; border-color: #c3e6cb; }
+.alert-danger { color: #721c24; background-color: #f8d7da; border-color: #f5c6cb; }

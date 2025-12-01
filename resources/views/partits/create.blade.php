@@ -1,0 +1,58 @@
+{{-- Extiende del layout principal --}}
+@extends('layouts.app')
+
+{{-- Título de la pestaña para la vista de creación --}}
+@section('title', 'Afegir nova Jugadora')
+
+{{-- Contenido principal de la página --}}
+@section('content')
+    {{-- Título del formulario --}}
+    <h1 class="text-2xl font-bold mb-4">Afegir nou Partit</h1>
+
+    {{-- Si hay errores de validación (enviados desde 'store'), los mostramos aquí --}}
+    @if ($errors->any())
+        <div class="bg-red-100 text-red-700 p-2 mb-4">
+            <ul>
+                {{-- Recorre todos los mensajes de error y los muestra en una lista --}}
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    {{-- Formulario para crear un nuevo equipo.
+    action: apunta a la ruta que procesa el formulario (equips.store).
+    method: POST porque estamos enviando datos para guardar. --}}
+    <form action="{{ route('partits.store') }}" method="POST" class="space-y-4">
+        {{-- Directiva Blade para incluir el token CSRF (seguridad obligatoria en Laravel) --}}
+        @csrf
+
+        {{-- Campo: nombre del equipo --}}
+        <div>
+            <label for="nom" class="block font-bold">Nom del equip local: </label>
+            {{-- old('nom') rellena el campo con el valor anterior si la validación falla --}}
+            <input type="text" name="local" id="local" value="{{ old('local') }}" class="border p-2 w-full">
+        </div>
+
+        {{-- Campo: estadio --}}
+        <div>
+            <label for="ciutat" class="block font-bold">Nom del equip vistant: </label>
+            <input type="text" name="visitant" id="visitant" value="{{ old('visitant') }}" class="border p-2 w-full">
+        </div>
+        <div>
+            <label for="ciutat" class="block font-bold">Resultat: </label>
+            <input type="text" name="resultat" id="resultat" value="{{ old('resultat') }}" class="border p-2 w-full">
+        </div>
+
+        <div>
+            <label for="ciutat" class="block font-bold">Data: </label>
+            <input type="data" name="data" id="data" value="{{ old('data') }}" class="border p-2 w-full">
+        </div>
+
+        {{-- Botón para enviar el formulario --}}
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">
+            Afegir
+        </button>
+    </form>
+@endsection
